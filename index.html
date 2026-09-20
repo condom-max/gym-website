@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IRONCORE FITNESS</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,0.9);
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#ff3c00;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:15px;
+}
+
+nav a:hover{
+    color:#ff3c00;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 7% 60px;
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    radial-gradient(circle at center,#4b1608,#090909 60%);
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,85px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ff3c00;
+}
+
+.hero p{
+    color:#bbb;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    background:#ff3c00;
+    color:white;
+    text-decoration:none;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#ff5a25;
+}
+
+section{
+    padding:80px 7%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:45px;
+}
+
+.section-title span{
+    color:#ff3c00;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#171717;
+    padding:30px;
+    border-radius:12px;
+    border:1px solid #292929;
+    text-align:center;
+}
+
+.card:hover{
+    border-color:#ff3c00;
+    transform:translateY(-5px);
+    transition:.3s;
+}
+
+.card h3{
+    margin:15px 0;
+}
+
+.card p{
+    color:#aaa;
+}
+
+/* PLANS */
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.plan{
+    background:#151515;
+    padding:30px;
+    border-radius:12px;
+    border:1px solid #292929;
+}
+
+.plan.popular{
+    border:2px solid #ff3c00;
+}
+
+.plan h3{
+    color:#ff3c00;
+}
+
+.price{
+    font-size:35px;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.plan ul{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.plan li{
+    margin:12px 0;
+    color:#bbb;
+}
+
+/* CALCULATOR */
+
+.tools{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.tool{
+    background:#151515;
+    padding:30px;
+    border-radius:12px;
+}
+
+.tool h3{
+    margin-bottom:20px;
+    color:#ff3c00;
+}
+
+input,select{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border:none;
+    border-radius:5px;
+    background:#252525;
+    color:white;
+}
+
+.result{
+    margin-top:15px;
+    color:#ff6a35;
+    font-weight:bold;
+}
+
+/* TIMER */
+
+.timer{
+    text-align:center;
+}
+
+.time{
+    font-size:55px;
+    font-weight:bold;
+    margin:20px;
+}
+
+.timer button{
+    margin:5px;
+}
+
+/* BOOKING */
+
+form{
+    max-width:600px;
+    margin:auto;
+    background:#151515;
+    padding:30px;
+    border-radius:12px;
+}
+
+form textarea{
+    width:100%;
+    height:100px;
+    background:#252525;
+    border:none;
+    color:white;
+    padding:12px;
+    margin:8px 0;
+    border-radius:5px;
+}
+
+.message{
+    text-align:center;
+    margin-top:15px;
+    color:#35ff7a;
+}
+
+/* FOOTER */
+
+footer{
+    background:#050505;
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
+
+@media(max-width:700px){
+
+    nav{
+        display:none;
+    }
+
+    header{
+        padding:15px 5%;
+    }
+
+    section{
+        padding:60px 5%;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">IRONCORE</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#plans">Plans</a>
+<a href="#tools">Tools</a>
+<a href="#booking">Join</a>
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>BUILD YOUR<br><span>STRONGEST</span> SELF.</h1>
+
+<p>
+Train harder. Move better. Become stronger.
+Join IronCore Fitness and start your transformation today.
+</p>
+
+<a href="#plans" class="btn">VIEW MEMBERSHIPS</a>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+
+<h2 class="section-title">
+WHY <span>IRONCORE?</span>
+</h2>
+
+<div class="features">
+
+<div class="card">
+<h1>🏋️</h1>
+<h3>Modern Equipment</h3>
+<p>Everything you need for strength and fitness training.</p>
+</div>
+
+<div class="card">
+<h1>🔥</h1>
+<h3>Expert Coaching</h3>
+<p>Learn proper technique and train with confidence.</p>
+</div>
+
+<div class="card">
+<h1>⚡</h1>
+<h3>High Energy</h3>
+<p>A motivating environment designed to keep you moving.</p>
+</div>
+
+<div class="card">
+<h1>💪</h1>
+<h3>Real Progress</h3>
+<p>Track your workouts and build sustainable habits.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MEMBERSHIPS -->
+
+<section id="plans">
+
+<h2 class="section-title">
+MEMBERSHIP <span>PLANS</span>
+</h2>
+
+<div class="plans">
+
+<div class="plan">
+
+<h3>STARTER</h3>
+
+<div class="price">₹799</div>
+
+<ul>
+<li>✓ Gym access</li>
+<li>✓ Basic equipment</li>
+<li>✓ Locker access</li>
+<li>✕ Personal trainer</li>
+</ul>
+
+<button class="btn" onclick="selectPlan('Starter')">
+CHOOSE
+</button>
+
+</div>
+
+
+<div class="plan popular">
+
+<h3>PRO</h3>
+
+<div class="price">₹1,499</div>
+
+<ul>
+<li>✓ Unlimited gym access</li>
+<li>✓ All equipment</li>
+<li>✓ Fitness assessment</li>
+<li>✓ Trainer guidance</li>
+</ul>
+
+<button class="btn" onclick="selectPlan('Pro')">
+CHOOSE
+</button>
+
+</div>
+
+
+<div class="plan">
+
+<h3>ELITE</h3>
+
+<div class="price">₹2,499</div>
+
+<ul>
+<li>✓ Everything in Pro</li>
+<li>✓ Personal trainer</li>
+<li>✓ Nutrition guidance</li>
+<li>✓ Custom workout plan</li>
+</ul>
+
+<button class="btn" onclick="selectPlan('Elite')">
+CHOOSE
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<section id="tools">
+
+<h2 class="section-title">
+FITNESS <span>TOOLS</span>
+</h2>
+
+<div class="tools">
+
+
+<!-- BMI -->
+
+<div class="tool">
+
+<h3>BMI Calculator</h3>
+
+<input id="height" type="number" placeholder="Height (cm)">
+
+<input id="weight" type="number" placeholder="Weight (kg)">
+
+<button class="btn" onclick="calculateBMI()">
+Calculate BMI
+</button>
+
+<div class="result" id="bmiResult"></div>
+
+</div>
+
+
+<!-- TIMER -->
+
+<div class="tool timer">
+
+<h3>Workout Timer</h3>
+
+<div class="time" id="timer">00:00</div>
+
+<button class="btn" onclick="startTimer()">START</button>
+
+<button class="btn" onclick="pauseTimer()">PAUSE</button>
+
+<button class="btn" onclick="resetTimer()">RESET</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section id="booking">
+
+<h2 class="section-title">
+BOOK A <span>FREE TRIAL</span>
+</h2>
+
+<form onsubmit="bookTrial(event)">
+
+<input
+id="name"
+type="text"
+placeholder="Your Name"
+required
+>
+
+<input
+id="phone"
+type="tel"
+placeholder="Phone Number"
+required
+>
+
+<input
+id="date"
+type="date"
+required
+>
+
+<select id="time" required>
+
+<option value="">Choose Time</option>
+<option>7:00 AM</option>
+<option>9:00 AM</option>
+<option>5:00 PM</option>
+<option>7:00 PM</option>
+
+</select>
+
+<textarea
+placeholder="Anything you'd like us to know?"
+></textarea>
+
+<button class="btn" type="submit">
+BOOK FREE TRIAL
+</button>
+
+<div class="message" id="bookingMessage"></div>
+
+</form>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 IRONCORE FITNESS</p>
+<p>Train Smart • Stay Consistent • Get Stronger</p>
+
+</footer>
+
+
+<script>
+
+/* BMI */
+
+function calculateBMI(){
+
+    let height =
+    Number(document.getElementById("height").value);
+
+    let weight =
+    Number(document.getElementById("weight").value);
+
+    if(height <= 0 || weight <= 0){
+
+        document.getElementById("bmiResult").innerText =
+        "Please enter valid values.";
+
+        return;
+    }
+
+    let bmi =
+    weight / ((height / 100) ** 2);
+
+    let category;
+
+    if(bmi < 18.5){
+        category = "Below typical adult BMI range";
+    }
+    else if(bmi < 25){
+        category = "Typical adult BMI range";
+    }
+    else if(bmi < 30){
+        category = "Above typical adult BMI range";
+    }
+    else{
+        category = "High adult BMI range";
+    }
+
+    document.getElementById("bmiResult").innerText =
+    "BMI: " + bmi.toFixed(1) +
+    " — " + category;
+
+}
+
+
+/* TIMER */
+
+let seconds = 0;
+let interval = null;
+
+function updateTimer(){
+
+    let minutes =
+    Math.floor(seconds / 60);
+
+    let secs =
+    seconds % 60;
+
+    document.getElementById("timer").innerText =
+    String(minutes).padStart(2,"0") +
+    ":" +
+    String(secs).padStart(2,"0");
+}
+
+function startTimer(){
+
+    if(interval !== null) return;
+
+    interval = setInterval(function(){
+
+        seconds++;
+
+        updateTimer();
+
+    },1000);
+}
+
+function pauseTimer(){
+
+    clearInterval(interval);
+
+    interval = null;
+}
+
+function resetTimer(){
+
+    pauseTimer();
+
+    seconds = 0;
+
+    updateTimer();
+}
+
+
+/* MEMBERSHIP */
+
+function selectPlan(plan){
+
+    document.getElementById("booking").scrollIntoView();
+
+    alert(
+        "You selected the " +
+        plan +
+        " membership!"
+    );
+
+}
+
+
+/* BOOKING */
+
+function bookTrial(event){
+
+    event.preventDefault();
+
+    let name =
+    document.getElementById("name").value;
+
+    document.getElementById("bookingMessage").innerText =
+    "Thanks " + name +
+    "! Your trial request has been recorded.";
+
+    event.target.reset();
+
+}
+
+</script>
+
+</body>
+</html>
